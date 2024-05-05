@@ -2,32 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.gradient-text {
+  @apply bg-blue-to-purple inline-block text-transparent bg-clip-text;
+}
+
+.border-gradient-horizontal {
+  border-image: linear-gradient(to right, #3d8bff, #ab23ff) 1;
+}
+
+.border-gradient-vertical {
+  border-image: linear-gradient(to top, #3d8bff, #ab23ff) 1;
+}
+
+.hexagon-gradient-border {
+  border-style: dashed;
+  border-width: 1px;
+  border-image: linear-gradient(to right, #3d8bff, #ab23ff) 1;
+}
+
+.button-gradient-border {
+  @apply bg-blue-to-purple text-white font-semibold rounded p-1;
+}
+
+.button-gradient-border span {
+  @apply flex w-full bg-grey-dark text-white rounded p-2;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ab23ff transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ab23ff;
+  border-radius: 10px;
 }
